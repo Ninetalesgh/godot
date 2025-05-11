@@ -1,0 +1,4 @@
+# grep .ignore
+
+editor/translations/
+doc/translations/
