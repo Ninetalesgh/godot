@@ -69,6 +69,11 @@ private:
 	CowData<T> _cowdata;
 
 public:
+	_FORCE_INLINE_ T& front() { return get(0); }
+	_FORCE_INLINE_ T const& front() const { return get(0); }
+	_FORCE_INLINE_ T& back() { return get(size()-1); }
+	_FORCE_INLINE_ T const& back() const { return get(size()-1); }
+
 	// Must take a copy instead of a reference (see GH-31736).
 	bool push_back(T p_elem);
 	_FORCE_INLINE_ bool append(const T &p_elem) { return push_back(p_elem); } //alias
