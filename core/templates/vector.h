@@ -55,6 +55,8 @@ public:
 
 		return ((Vector<T> *)(this))->_cowdata.ptrw()[p_index];
 	}
+	_FORCE_INLINE_ T& front() { return ((Vector<T> *)(this))->get(0); }
+	_FORCE_INLINE_ T& back() { return ((Vector<T> *)(this))->get(((Vector<T> *)(this))->size()-1); }
 };
 
 template <typename T>
@@ -69,9 +71,7 @@ private:
 	CowData<T> _cowdata;
 
 public:
-	_FORCE_INLINE_ T& front() { return get(0); }
 	_FORCE_INLINE_ T const& front() const { return get(0); }
-	_FORCE_INLINE_ T& back() { return get(size()-1); }
 	_FORCE_INLINE_ T const& back() const { return get(size()-1); }
 
 	// Must take a copy instead of a reference (see GH-31736).
