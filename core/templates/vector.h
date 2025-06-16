@@ -55,8 +55,8 @@ public:
 
 		return ((Vector<T> *)(this))->_cowdata.ptrw()[p_index];
 	}
-	_FORCE_INLINE_ T& front() { return ((Vector<T> *)(this))->get(0); }
-	_FORCE_INLINE_ T& back() { return ((Vector<T> *)(this))->get(((Vector<T> *)(this))->size()-1); }
+	_FORCE_INLINE_ T& front() { return ((Vector<T> *)(this))->_cowdata.get_m(0); }
+	_FORCE_INLINE_ T& back() { return ((Vector<T> *)(this))->_cowdata.get_m(((Vector<T> *)(this))->size()-1); }
 };
 
 template <typename T>
