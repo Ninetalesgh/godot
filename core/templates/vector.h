@@ -74,6 +74,7 @@ public:
 	_FORCE_INLINE_ T const& front() const { return get(0); }
 	_FORCE_INLINE_ T const& back() const { return get(size()-1); }
 
+	bool pop_back() { if (is_empty()) return false; remove_at(size()-1); return true; }
 	// Must take a copy instead of a reference (see GH-31736).
 	bool push_back(T p_elem);
 	_FORCE_INLINE_ bool append(const T &p_elem) { return push_back(p_elem); } //alias
