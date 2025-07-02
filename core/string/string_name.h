@@ -137,7 +137,9 @@ public:
 	static StringName search(const char *p_name);
 	static StringName search(const char32_t *p_name);
 	static StringName search(const String &p_name);
-
+// CL CHANGE BEGIN: An unsafe search by hash.
+    static StringName search_for_hash(const uint32_t &p_hash);
+// CL CHANGE END
 	struct AlphCompare {
 		template <typename LT, typename RT>
 		_FORCE_INLINE_ bool operator()(const LT &l, const RT &r) const {

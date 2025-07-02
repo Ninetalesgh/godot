@@ -55,8 +55,10 @@ public:
 
 		return ((Vector<T> *)(this))->_cowdata.ptrw()[p_index];
 	}
+// CL CHANGE BEGIN: basic write access ease of interaction
 	_FORCE_INLINE_ T& front() { return ((Vector<T> *)(this))->_cowdata.get_m(0); }
 	_FORCE_INLINE_ T& back() { return ((Vector<T> *)(this))->_cowdata.get_m(((Vector<T> *)(this))->size()-1); }
+// CL CHANGE END
 };
 
 template <typename T>
@@ -71,8 +73,10 @@ private:
 	CowData<T> _cowdata;
 
 public:
+// CL CHANGE BEGIN: basic readonly ease of interaction
 	_FORCE_INLINE_ T const& front() const { return get(0); }
 	_FORCE_INLINE_ T const& back() const { return get(size()-1); }
+// CL CHANGE END
 
 	bool pop_back() { if (is_empty()) { return false; } remove_at(size()-1); return true; }
 	// Must take a copy instead of a reference (see GH-31736).
